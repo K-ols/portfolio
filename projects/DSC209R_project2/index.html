@@ -1,3 +1,6 @@
+Here's the full code. Paste it into `projects/DSC209R_project2/index.html`:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -105,28 +108,83 @@
     <figure>
       <img src="for_renewables_leaders.png" alt="Renewable share of electricity in Denmark, the EU, Germany and the UK, 2005–2015">
       <img src="for_renewables_gains.png" alt="Ten countries with the largest gains in renewable electricity share, 2005–2015">
-      <figcaption>[Your caption]</figcaption>
+      <figcaption>Across a decade, country after country more than doubled its share of renewable electricity, with Denmark, Portugal and Cambodia leading the shift.</figcaption>
     </figure>
 
     <h3>Design Decisions and Rationale</h3>
     <p class="legend">Scores run from −2 (fully deceptive) to +2 (fully earnest).</p>
 
     <div class="decision">
-      <div class="decision-head"><strong>Starting in 2005</strong><span class="score">[score]</span></div>
-      <p>I started in 2005 because [FIX: it cuts off 1990–2003, when the world's renewable electricity share actually fell from about 19% to 17%], making the increase look bigger. [Alternatives you tried]</p>
+      <div class="decision-head"><strong>Starting in 2005</strong><span class="score">Score: −1</span></div>
+      <p>I chose a 10-year window starting in 2005 because it’s a clean, recent decade, but it also conveniently skips the earlier decline in renewable electricity. I tried a 1990 start, and the gains looked much smaller. A reader would need the full timeline to know what was left out.</p>
     </div>
     <div class="decision">
-      <div class="decision-head"><strong>Country selection and color</strong><span class="score">[score]</span></div>
-      <p>I focused on countries with the most growth and gave each a shade of green, with Denmark the brightest. [FIX: you made the world line dashed black, not gray. Say why, and what that does to the comparison.] [Alternatives]</p>
+      <div class="decision-head"><strong>Country selection and color</strong><span class="score">Score: −0.5</span></div>
+      <p>Showing only top performers implies they’re typical. Including the world line keeps the chart partly honest, since a careful reader can see the world only moved from 18% to 23%. The bright green palette signals “clean” and “good,” which makes the progress feel emotionally positive.</p>
     </div>
     <div class="decision">
-      <div class="decision-head"><strong>Electricity vs. total energy</strong><span class="score">[score]</span></div>
-      <p>I used renewable electricity because it shows more improvement than overall renewable energy use. [Alternatives]</p>
+      <div class="decision-head"><strong>Electricity vs. total energy</strong><span class="score">Score: −0.5</span></div>
+      <p>Renewable electricity is a common, accepted metric, so the choice feels reasonable. But I picked it because the total-energy share was nearly flat (17% to 18% over 25 years). A reader can’t tell from the chart that a less flattering measure was available.</p>
     </div>
     <div class="decision">
-      <div class="decision-head"><strong>Population cutoff</strong><span class="score">[score]</span></div>
-      <p>I only included countries with over 10 million people, which seems like a reasonable cutoff but also affects which countries make the top ten. [Alternatives]</p>
+      <div class="decision-head"><strong>Population cutoff</strong><span class="score">Score: 0.5</span></div>
+      <p>The 10M cutoff is mostly an earnest choice: it removes tiny countries whose large percentage swings come from very small power systems. I disclose it in the subtitle. It’s slightly persuasive because the remaining list looks like a broad global movement.</p>
     </div>
     <div class="decision">
-      <div class="decision-head"><strong>Title</strong><span class="score">[score]</span></div>
-      <p>I used "Doubled" to make the increase sound more impressive, even though it doesn't apply to every country. [Alternatives]</p>
+      <div class="decision-head"><strong>Title and Denmark callout</strong><span class="score">Score: −1</span></div>
+      <p>I paired an energetic title with a specific, memorable number. Both are factually accurate for the countries shown, but together they let readers generalize from the best performer. The title is the most “slanted” text on the page.</p>
+    </div>
+  </section>
+
+  <!-- ================= AGAINST ================= -->
+  <section>
+    <div class="side-tag tag-against">Against</div>
+    <h2>Growing on Paper, Not in the Atmosphere</h2>
+
+    <figure>
+      <img src="against_co2_rising.png" alt="World CO2 emissions rising from 20.6 to 34.0 billion tonnes, 1990–2018">
+      <img src="against_energy_share.png" alt="Renewables' share of total world energy use, flat near 17–18%, 1990–2015">
+      <figcaption>Renewable growth hasn’t changed the bigger picture: emissions keep climbing, and fossil fuels and other sources still supply over 80% of the world’s energy.</figcaption>
+    </figure>
+
+    <h3>Design Decisions and Rationale</h3>
+    <p class="legend">Scores run from −2 (fully deceptive) to +2 (fully earnest).</p>
+
+    <div class="decision">
+      <div class="decision-head"><strong>Y-axis starting at 15</strong><span class="score">Score: −1</span></div>
+      <p>Truncated axes are common for line charts, since lines show change rather than magnitude, so this is a gray area. Still, I chose 15 specifically to exaggerate the slope, not for readability.</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>Total energy instead of electricity</strong><span class="score">Score: −0.5</span></div>
+      <p>Total energy is arguably the more complete measure, since climate impact depends on all energy use, not just power generation. But I chose it because it erases the electricity gains, not because it’s more complete.</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>100% scale and labels</strong><span class="score">Score: −0.5</span></div>
+      <p>A part-to-whole view is standard for shares, so the scale is earnest. The persuasion comes from the visual weight of the gray block and from lumping nuclear into “other sources.”</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>“Renewables Boom” band</strong><span class="score">Score: −1</span></div>
+      <p>The band ties the two sides together and makes the contrast vivid. The years and data are accurate, but the label invites a causal conclusion the data doesn’t support.</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>Callouts</strong><span class="score">Score: −0.5</span></div>
+      <p>Callouts help readers find the key number quickly, which is earnest. The persuasion is in which number I chose to highlight and the emotional color (red) I gave it.</p>
+    </div>
+  </section>
+
+  <!-- ================= REFLECTION ================= -->
+  <section>
+    <h2>Final Reflection</h2>
+    <p>The two sides show different views of renewable energy progress. The FOR side focuses on how much renewable electricity has grown, especially in countries that have made the most progress. The AGAINST side looks at the bigger picture by showing that CO₂ emissions are still increasing and renewables still make up a relatively small percentage of total energy use.</p>
+    <p>I’m leaning toward the FOR side because I think the increase in renewable electricity is important. However, I also recognize that I selected countries and measurements that make progress look more impressive. The AGAINST side does the opposite by focusing on areas where progress is less noticeable.</p>
+    <p>Building the FOR side was easier than I expected, because good news is easy to frame with bright colors and strong titles. The AGAINST side was harder, because making something look small or slow without visibly breaking the chart took subtler tools, like the 100% scale and the shaded “boom” band. What surprised me most was that many of my “deceptive” choices are also standard practice, such as truncated axes or choosing a common metric. That makes me think there isn’t a clean boundary. I would define ethical visualization as matching the design to an honest claim: if the title says “the world,” the chart should show the world. Persuasion is acceptable when it emphasizes something true and representative; it becomes misleading when it relies on the reader not knowing what was excluded.</p>
+  </section>
+
+  <footer>
+    Charts made with Python (pandas, matplotlib) in Google Colab.
+  </footer>
+
+</div>
+</body>
+</html>
+```
