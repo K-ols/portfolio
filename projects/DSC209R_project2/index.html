@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project 2: Persuasive or Deceptive Visualization?</title>
+<style>
+  :root {
+    --ink: #1f2328;
+    --muted: #5f6670;
+    --line: #e3e6ea;
+    --soft: #f6f8f7;
+    --for: #2e7d32;
+    --against: #2b2d30;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: #ffffff;
+    color: var(--ink);
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
 
+  /* Top navigation back to the portfolio */
+  nav { border-bottom: 1px solid var(--line); }
+  nav .wrap { display: flex; gap: 20px; padding-top: 14px; padding-bottom: 14px; font-size: 0.95em; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+
+  /* Header */
+  header { padding: 48px 0 24px; }
+  .kicker { text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.8em; color: var(--muted); font-weight: 600; }
+  h1 { font-size: 2.1em; line-height: 1.2; margin: 8px 0 12px; }
+  .byline { color: var(--muted); margin: 0; }
+
+  /* Proposition box */
+  .proposition {
+    background: var(--soft);
+    border-left: 5px solid var(--for);
+    padding: 18px 22px;
+    margin: 24px 0 8px;
+    font-size: 1.2em;
+    font-weight: 600;
+  }
+  .proposition span { display: block; font-size: 0.7em; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+  .data-note { font-size: 0.9em; color: var(--muted); }
+
+  /* Sections */
+  section { padding: 40px 0; border-top: 1px solid var(--line); }
+  h2 { font-size: 1.5em; margin: 0 0 4px; }
+  .side-tag { display: inline-block; font-size: 0.75em; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #fff; padding: 3px 10px; border-radius: 4px; margin-bottom: 10px; }
+  .tag-for { background: var(--for); }
+  .tag-against { background: var(--against); }
+
+  figure { margin: 20px 0; }
+  figure img { width: 100%; height: auto; display: block; border: 1px solid var(--line); border-radius: 6px; margin-bottom: 14px; }
+  figcaption { color: var(--muted); font-size: 0.95em; }
+
+  h3 { font-size: 1.1em; margin: 28px 0 12px; }
+
+  /* Design decision cards */
+  .decision { border: 1px solid var(--line); border-radius: 8px; padding: 14px 18px; margin-bottom: 12px; }
+  .decision-head { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+  .score { flex-shrink: 0; font-size: 0.85em; font-weight: 700; padding: 2px 10px; border-radius: 999px; background: var(--soft); border: 1px solid var(--line); }
+  .decision p { margin: 6px 0 0; }
+  .legend { font-size: 0.88em; color: var(--muted); margin-bottom: 16px; }
+
+  footer { border-top: 1px solid var(--line); padding: 24px 0 48px; color: var(--muted); font-size: 0.88em; }
+  a { color: var(--for); }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="../../">Home</a>
+    <a href="../">Projects</a>
+    <a href="../../resume/">Resume</a>
+    <a href="../../contact/">Contact</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <header>
+    <div class="kicker">DSC 209R · Project 2</div>
+    <h1>Persuasive or Deceptive Visualization?</h1>
+    <p class="byline">[Your Name] · [UCSD email]</p>
+
+    <div class="proposition">
+      <span>Proposition</span>
+      The world is making real progress on renewable energy.
+    </div>
+    <p class="data-note">Data: World Bank, World Development Indicators — Climate Change
+      (<a href="https://github.com/light-and-salt/World-Bank-Data-by-Indicators">cleaned dataset</a>).</p>
+  </header>
+
+  <!-- ================= FOR ================= -->
+  <section>
+    <div class="side-tag tag-for">For</div>
+    <h2>[Your section title]</h2>
+
+    <figure>
+      <img src="for_renewables_leaders.png" alt="Renewable share of electricity in Denmark, the EU, Germany and the UK, 2005–2015">
+      <img src="for_renewables_gains.png" alt="Ten countries with the largest gains in renewable electricity share, 2005–2015">
+      <figcaption>[Your caption]</figcaption>
+    </figure>
+
+    <h3>Design Decisions and Rationale</h3>
+    <p class="legend">Scores run from −2 (fully deceptive) to +2 (fully earnest).</p>
+
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[What you did, why it persuades, what alternatives you considered]</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[Rationale]</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[Rationale]</p>
+    </div>
+  </section>
+
+  <!-- ================= AGAINST ================= -->
+  <section>
+    <div class="side-tag tag-against">Against</div>
+    <h2>[Your section title]</h2>
+
+    <figure>
+      <img src="against_co2_rising.png" alt="World CO2 emissions rising from 20.6 to 34.0 billion tonnes, 1990–2018">
+      <img src="against_energy_share.png" alt="Renewables' share of total world energy use, flat near 17–18%, 1990–2015">
+      <figcaption>[Your caption]</figcaption>
+    </figure>
+
+    <h3>Design Decisions and Rationale</h3>
+    <p class="legend">Scores run from −2 (fully deceptive) to +2 (fully earnest).</p>
+
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[Rationale]</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[Rationale]</p>
+    </div>
+    <div class="decision">
+      <div class="decision-head"><strong>[Decision name]</strong><span class="score">[score]</span></div>
+      <p>[Rationale]</p>
+    </div>
+  </section>
+
+  <!-- ================= REFLECTION ================= -->
+  <section>
+    <h2>Final Reflection</h2>
+    <p>[Paragraph 1]</p>
+    <p>[Paragraph 2]</p>
+    <p>[Paragraph 3]</p>
+  </section>
+
+  <footer>
+    Charts made with Python (pandas, matplotlib) in Google Colab.
+  </footer>
+
+</div>
+</body>
+</html>
