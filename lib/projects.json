@@ -1,75 +1,75 @@
 
 [
   {
-    "title": "Food Processing & Nutrition",
+    "title": "Food Processing & Nutrition Analysis",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "DSC 209R Project 1: Exploring how food processing levels relate to sugar, sodium, and protein using data visualization."
+    "description": "DSC 209R Project 1: Analyzed relationships between food processing levels and sugar, sodium, and protein using comparative data visualizations."
   },
   {
     "title": "Ethics in Data Visualization",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "DSC 209R Project 2: Examining how visualization design choices can influence the interpretation of the same dataset."
+    "description": "DSC 209R Project 2: Explored how visualization design choices can influence interpretations of the same dataset."
   },
   {
-    "title": "Music & Mental Health",
+    "title": "Music & Mental Health Analysis",
     "year": "2025",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Analyzing relationships between music listening habits and mental health using machine learning."
+    "description": "Explored relationships between music listening habits and mental health using clustering, machine learning, and statistical analysis."
   },
   {
-    "title": "Autonomous Vehicle Analysis",
+    "title": "Autonomous Vehicle Motion Prediction (Waymo)",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Using machine learning and feature engineering to analyze autonomous vehicle data."
+    "description": "Applied feature engineering, principal component analysis, and machine learning to autonomous vehicle motion prediction data."
   },
   {
-    "title": "Project 5",
-    "year": "2026",
+    "title": "Venture Capital Investment Dashboard",
+    "year": "2023",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Developed a dashboard project focused on venture capital investment analysis and communicating investment information."
   },
   {
-    "title": "Project 6",
-    "year": "2026",
+    "title": "Behavioral Economics Research",
+    "year": "2024",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Investigated economic decision-making, risk preferences, and diversification behavior through experimental research."
   },
   {
-    "title": "Project 7",
-    "year": "2026",
+    "title": "SBIR Commercialization & Valley of Death Research",
+    "year": "2024",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Researched commercialization challenges facing small businesses transitioning government-funded innovations into operational capabilities."
   },
   {
-    "title": "Project 8",
+    "title": "Amazon Product Review Analysis",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Data mining coursework involving Amazon product review data, feature engineering, and predictive modeling."
   },
   {
-    "title": "Project 9",
+    "title": "MNIST Handwritten Digit Classification",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Developed and evaluated machine learning classification models for recognizing handwritten digits using the MNIST dataset."
   },
   {
-    "title": "Project 10",
+    "title": "Heart Disease Feature Selection",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Applied stepwise feature selection techniques to evaluate predictors in a heart disease classification dataset."
   },
   {
-    "title": "Project 11",
-    "year": "2026",
+    "title": "Airbnb San Diego Data Analysis",
+    "year": "2025",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Explored San Diego Airbnb listing data using Python and exploratory data analysis techniques."
   },
   {
-    "title": "Project 12",
+    "title": "Personal Portfolio Website",
     "year": "2026",
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-    "description": "Future data science project."
+    "description": "Designed and developed a responsive personal portfolio using HTML, CSS, JavaScript, JSON, and the GitHub API."
   }
 ]
