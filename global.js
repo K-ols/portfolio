@@ -58,6 +58,7 @@ for (let p of pages) {
     // Add link to navigation menu
     nav.append(a);
 }
+
 // =====================================
 // STEP 4: DARK MODE
 // =====================================
@@ -107,6 +108,9 @@ if ("colorScheme" in localStorage) {
     select.value = savedColorScheme;
 }
 
+// =====================================
+// LAB 4: FETCH JSON DATA
+// =====================================
 
 export async function fetchJSON(url) {
     try {
@@ -115,7 +119,7 @@ export async function fetchJSON(url) {
 
         // Check if the request was successful
         if (!response.ok) {
-            throw new Error(`Failed to fetch projects: ${response.statusText}`);
+            throw new Error(`Failed to fetch data: ${response.statusText}`);
         }
 
         // Convert the response into JSON
@@ -129,6 +133,9 @@ export async function fetchJSON(url) {
     }
 }
 
+// =====================================
+// LAB 4: RENDER PROJECTS
+// =====================================
 
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
 
@@ -163,4 +170,15 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         // Add the article to the container
         containerElement.appendChild(article);
     }
+}
+
+// =====================================
+// LAB 4: FETCH GITHUB API DATA
+// =====================================
+
+export async function fetchGitHubData(username) {
+
+    // Fetch public GitHub profile data
+    return fetchJSON(`https://api.github.com/users/${username}`);
+
 }
