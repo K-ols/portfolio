@@ -129,3 +129,38 @@ export async function fetchJSON(url) {
     }
 }
 
+
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+
+    // Check that the container exists
+    if (!containerElement) {
+        console.error('Projects container not found');
+        return;
+    }
+
+    // Clear existing content
+    containerElement.innerHTML = '';
+
+    // Handle an empty or missing project list
+    if (!Array.isArray(projects) || projects.length === 0) {
+        containerElement.textContent = 'No projects available.';
+        return;
+    }
+
+    // Create a card for each project
+    for (let project of projects) {
+
+        // Create an article element
+        const article = document.createElement('article');
+
+        // Add project details
+        article.innerHTML = `
+            <${headingLevel}>${project.title}</${headingLevel}>
+            <img src="${project.image}" alt="${project.title}">
+            <p>${project.description}</p>
+        `;
+
+        // Add the article to the container
+        containerElement.appendChild(article);
+    }
+}
