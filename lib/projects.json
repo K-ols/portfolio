@@ -1,0 +1,75 @@
+
+[
+  {
+    "title": "Food Processing & Nutrition",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "DSC 209R Project 1: Exploring how food processing levels relate to sugar, sodium, and protein using data visualization."
+  },
+  {
+    "title": "Ethics in Data Visualization",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "DSC 209R Project 2: Examining how visualization design choices can influence the interpretation of the same dataset."
+  },
+  {
+    "title": "Music & Mental Health",
+    "year": "2025",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Analyzing relationships between music listening habits and mental health using machine learning."
+  },
+  {
+    "title": "Autonomous Vehicle Analysis",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Using machine learning and feature engineering to analyze autonomous vehicle data."
+  },
+  {
+    "title": "Project 5",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 6",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 7",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 8",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 9",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 10",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 11",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  },
+  {
+    "title": "Project 12",
+    "year": "2026",
+    "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+    "description": "Future data science project."
+  }
+]
