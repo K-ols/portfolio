@@ -1,30 +1,19 @@
-console.log("IT'S ALIVE!");
-
-function $$(selector, context = document) {
-    return Array.from(context.querySelectorAll(selector));
-}
-let navLinks = $$("nav a");
-
-let currentLink = navLinks.find(
-    (a) => a.host === location.host && a.pathname === location.pathname
-);
-
-currentLink?.classList.add("current");
 
 console.log("IT'S ALIVE!");
 
+// Helper function to select multiple elements
 function $$(selector, context = document) {
     return Array.from(context.querySelectorAll(selector));
 }
 
-// Determine the base path for local development or GitHub Pages
+// Set the base path for GitHub Pages
 const BASE_PATH =
     location.hostname === "localhost" ||
     location.hostname === "127.0.0.1"
         ? "/"
-        : "/website/";
+        : "/portfolio/";
 
-// All website pages
+// Define all website pages
 let pages = [
     { url: "", title: "Home" },
     { url: "projects/", title: "Projects" },
@@ -33,25 +22,30 @@ let pages = [
     { url: "resume/", title: "Resume" }
 ];
 
-// Create the navigation menu
+// Create navigation menu
 let nav = document.createElement("nav");
 document.body.prepend(nav);
 
-// Create each navigation link
+// Add navigation links
 for (let p of pages) {
     let url = p.url;
     let title = p.title;
 
+    // Adjust internal links for GitHub Pages
     if (!url.startsWith("http")) {
         url = BASE_PATH + url;
     }
 
+    // Create link
     let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
 
-    // Highlight the current page
-    if (a.host === location.host && a.pathname === location.pathname) {
+    // Highlight current page
+    if (
+        a.host === location.host &&
+        a.pathname === location.pathname
+    ) {
         a.classList.add("current");
     }
 
@@ -61,5 +55,6 @@ for (let p of pages) {
         a.rel = "noopener noreferrer";
     }
 
+    // Add link to navigation menu
     nav.append(a);
 }
