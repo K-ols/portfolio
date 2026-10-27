@@ -58,3 +58,51 @@ for (let p of pages) {
     // Add link to navigation menu
     nav.append(a);
 }
+// =====================================
+// STEP 4: DARK MODE
+// =====================================
+
+// Create theme selector
+document.body.insertAdjacentHTML(
+    "afterbegin",
+    `
+    <label class="color-scheme">
+        Theme:
+        <select>
+            <option value="light dark">Automatic</option>
+            <option value="light">Light</option>
+            <option value="dark">Dark</option>
+        </select>
+    </label>
+    `
+);
+
+// Get the theme dropdown
+let select = document.querySelector(".color-scheme select");
+
+// Function to apply the selected theme
+function setColorScheme(colorScheme) {
+    document.documentElement.style.setProperty(
+        "color-scheme",
+        colorScheme
+    );
+}
+
+// Change theme when the user selects an option
+select.addEventListener("input", function (event) {
+    let colorScheme = event.target.value;
+
+    // Apply the selected theme
+    setColorScheme(colorScheme);
+
+    // Save preference
+    localStorage.colorScheme = colorScheme;
+});
+
+// Restore the saved theme when the page loads
+if ("colorScheme" in localStorage) {
+    let savedColorScheme = localStorage.colorScheme;
+
+    setColorScheme(savedColorScheme);
+    select.value = savedColorScheme;
+}
