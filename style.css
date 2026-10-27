@@ -383,3 +383,45 @@ body.resume-page {
         transition: none !important;
     }
 }
+
+/* Home Page Layout */
+.intro {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3em;
+    margin-top: 3em;
+}
+
+/* Introduction Text */
+.intro-text {
+    flex: 1;
+    min-width: 0;
+}
+
+.intro-text h1 {
+    font-size: clamp(2.5em, 5vw, 4em);
+    margin-bottom: 0.5em;
+}
+
+/* Profile Photo */
+.profile-photo {
+    width: 280px;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+}
+
+/* Mobile Layout */
+@media (max-width: 700px) {
+    .intro {
+        flex-direction: column;
+        text-align: center;
+        gap: 1em;
+    }
+
+    .profile-photo {
+        width: 220px;
+    }
+}
