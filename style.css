@@ -4,6 +4,12 @@
     box-sizing: border-box;
 }
 
+html {
+    --color-accent: oklch(65% 50% 270);
+    accent-color: var(--color-accent);
+    color-scheme: light dark;
+}
+
 body {
     font: 100%/1.5 system-ui;
     max-width: 100ch;
@@ -18,9 +24,10 @@ nav li {
 }
 
 nav {
+    --border-color: oklch(50% 10% 200 / 40%);
     display: flex;
     margin-bottom: 1em;
-    border-bottom: 1px solid oklch(80% 3% 200);
+    border-bottom: 1px solid var(--border-color);
 }
 
 nav a {
@@ -32,27 +39,21 @@ nav a {
 }
 
 nav a.current {
-    border-bottom: 0.4em solid oklch(80% 3% 200);
+    border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
 }
 
-/* Accent Color */
-html {
-    --color-accent: oklch(65% 50% 270);
-    accent-color: var(--color-accent);
-}
-
-/* Hover Effect */
+/* Navigation Hover Effect */
 nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
 }
 
-
 /* Contact Form Styling */
 input,
 textarea,
-button {
+button,
+select {
     font: inherit;
 }
 
@@ -63,48 +64,39 @@ form {
     gap: 1em;
 }
 
-/* Align Labels and Input Fields */
 form label {
     display: grid;
     grid-template-columns: subgrid;
     grid-column: 1 / -1;
 }
 
-/* Make Input Fields Fit */
 form input,
 form textarea {
     width: 100%;
     box-sizing: border-box;
 }
 
-/* Submit Button */
 form button {
     grid-column: 1 / -1;
 }
 
-
-/* Step 4: Projects Page */
-
-/* Responsive Grid Layout */
+/* Projects Page */
 .projects {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
     gap: 1em;
 }
 
-/* Project Cards */
 .projects article {
     display: grid;
     grid-template-rows: subgrid;
     grid-row: span 3;
 }
 
-/* Project Headings */
 .projects h2 {
     margin: 0;
 }
 
-/* Project Images */
 .projects img {
     width: 100%;
 }
@@ -119,13 +111,10 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
 }
 
-
 /* =====================================
-   STEP 5: DARK RESUME DESIGN
-   Only affects the Resume page
+   RESUME PAGE DESIGN
    ===================================== */
 
-/* Resume Background */
 body.resume-page {
     max-width: none;
     min-height: 100vh;
@@ -141,7 +130,7 @@ body.resume-page {
     color: #eef0ff;
 }
 
-/* Navigation */
+/* Resume Navigation */
 .resume-page nav {
     border-bottom: 1px solid #383b59;
 }
@@ -162,13 +151,13 @@ body.resume-page {
     background: #ae8cff15;
 }
 
-/* Main Container */
+/* Resume Main Container */
 .resume-container {
     max-width: 1000px;
     margin: 0 auto;
 }
 
-/* Hero Section */
+/* Resume Hero Section */
 .resume-hero {
     padding: 5em 0 4em;
 }
@@ -203,7 +192,7 @@ body.resume-page {
     margin-bottom: 2em;
 }
 
-/* Purple Button */
+/* Purple Resume Button */
 .resume-button {
     display: inline-block;
     background: #ae8cff;
@@ -246,7 +235,7 @@ body.resume-page {
     gap: 1.5em;
 }
 
-/* Cards */
+/* Resume Cards */
 .resume-page .resume-card {
     background: #1a2038;
     border: 1px solid #343957;
@@ -343,7 +332,7 @@ body.resume-page {
     transform: translateY(-2px);
 }
 
-/* Footer */
+/* Resume Footer */
 .resume-footer {
     text-align: center;
     border-top: 1px solid #383b59;
@@ -352,7 +341,7 @@ body.resume-page {
     font-size: 0.85em;
 }
 
-/* Mobile Layout */
+/* Resume Mobile Layout */
 @media (max-width: 600px) {
     .resume-hero {
         padding: 3em 0;
@@ -384,7 +373,10 @@ body.resume-page {
     }
 }
 
-/* Home Page Layout */
+/* =====================================
+   HOME PAGE DESIGN
+   ===================================== */
+
 .intro {
     display: flex;
     align-items: center;
@@ -393,7 +385,6 @@ body.resume-page {
     margin-top: 3em;
 }
 
-/* Introduction Text */
 .intro-text {
     flex: 1;
     min-width: 0;
@@ -413,7 +404,7 @@ body.resume-page {
     flex-shrink: 0;
 }
 
-/* Mobile Layout */
+/* Home Mobile Layout */
 @media (max-width: 700px) {
     .intro {
         flex-direction: column;
@@ -423,5 +414,43 @@ body.resume-page {
 
     .profile-photo {
         width: 220px;
+    }
+}
+
+/* =====================================
+   LAB 3 - STEP 4: DARK MODE
+   ===================================== */
+
+/* Theme Selector */
+.color-scheme {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 80%;
+    z-index: 10;
+}
+
+.color-scheme select {
+    font: inherit;
+}
+
+/* Give navigation room for the theme selector */
+body > nav {
+    margin-top: 2.5rem;
+}
+
+/* Small Screen Adjustments */
+@media (max-width: 600px) {
+    .color-scheme {
+        top: 0.5rem;
+        right: 1rem;
+    }
+
+    nav {
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        flex: 1 1 auto;
     }
 }
