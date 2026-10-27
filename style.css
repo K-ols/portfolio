@@ -47,3 +47,37 @@ nav a:hover {
     border-bottom: 0.4em solid var(--color-accent);
     padding-bottom: 0.1em;
 }
+
+
+/* Contact Form Styling */
+input,
+textarea,
+button {
+    font: inherit;
+}
+
+/* Contact Form Grid */
+form {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1em;
+}
+
+/* Align Labels and Input Fields */
+form label {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1 / -1;
+}
+
+/* Make Input Fields Fit */
+form input,
+form textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Submit Button */
+form button {
+    grid-column: 1 / -1;
+}
