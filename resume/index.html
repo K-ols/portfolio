@@ -1,83 +1,148 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Resume - Kristen Oleson</title>
-
     <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<body class="resume-page">
 
     <nav>
         <a href="../">Home</a>
         <a href="../projects/">Projects</a>
         <a href="../contact/">Contact</a>
-        <a href="./">Resume</a>
+        <a href="./" class="current">Resume</a>
         <a href="https://github.com/K-ols" target="_blank">GitHub</a>
     </nav>
 
-    <h1>Kristen Oleson</h1>
+    <main class="resume-container">
 
-    <section>
-        <h2>Education</h2>
-
-        <article>
-            <h3>University of California, San Diego</h3>
-            <p>Master of Science in Data Science</p>
-            <p>
-                <time datetime="2025-09">September 2025</time>
-                -
-                <time datetime="2027-06">June 2027</time>
-            </p>
-        </article>
-
-        <article>
-            <h3>University of California, San Diego</h3>
-            <p>Bachelor of Science in Business Economics, Finance</p>
-            <p>
-                Graduated <time datetime="2024-06">June 2024</time>
-            </p>
-        </article>
-    </section>
-
-    <section>
-        <h2>Experience</h2>
-
-        <article>
-            <h3>Associate Manager</h3>
-            <p>Bonna Vita Ventures</p>
-            <p>
-                <time datetime="2024-08">August 2024</time>
-                -
-                <time datetime="2026-07">July 2026</time>
+        <!-- Introduction -->
+        <header class="resume-hero">
+            <p class="resume-eyebrow">
+                DATA SCIENCE · ANALYTICS · OPERATIONS
             </p>
 
-            <ul>
-                <li>Supported strategic planning and program operations.</li>
-                <li>Managed program logistics and workflows.</li>
-                <li>Analyzed applicant and program data.</li>
-                <li>Supervised and trained interns supporting program delivery.</li>
-            </ul>
-        </article>
-    </section>
+            <h1>Kristen Oleson<span class="resume-dot">.</span></h1>
 
-    <section>
-        <h2>Skills</h2>
+            <p class="resume-subtitle">
+                Data Science Graduate Student at UC San Diego
+            </p>
 
-        <ul>
-            <li>Python</li>
-            <li>R</li>
-            <li>Excel</li>
-            <li>Data Analysis</li>
-            <li>Program Management</li>
-            <li>Data Visualization</li>
-        </ul>
-    </section>
+            <p class="resume-description">
+                Interested in transforming data into meaningful
+                insights through analytics, visualization,
+                finance, and program management.
+            </p>
+
+            <a class="resume-button"
+               href="https://github.com/K-ols"
+               target="_blank"
+               rel="noopener noreferrer">
+                Explore My GitHub ↗
+            </a>
+        </header>
+
+        <!-- Education -->
+        <section class="resume-section">
+            <h2><span>01 /</span> Education</h2>
+
+            <div class="resume-card-grid">
+
+                <article class="resume-card">
+                    <p class="resume-card-label">GRADUATE</p>
+                    <h3>Master of Science in Data Science</h3>
+                    <p>University of California, San Diego</p>
+                    <p class="resume-date">
+                        September 2025 – June 2027
+                    </p>
+                </article>
+
+                <article class="resume-card">
+                    <p class="resume-card-label">UNDERGRADUATE</p>
+                    <h3>Bachelor of Science in Business Economics</h3>
+                    <p>University of California, San Diego</p>
+                    <p>Minors: Finance and Computational Social Science</p>
+                    <p class="resume-date">Graduated June 2024</p>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section class="resume-section">
+            <h2><span>02 /</span> Experience</h2>
+
+            <div class="resume-timeline">
+
+                <article class="resume-card resume-experience">
+                    <p class="resume-card-label">
+                        AUGUST 2024 – JULY 2026
+                    </p>
+
+                    <h3>Associate Manager</h3>
+                    <p class="resume-company">
+                        Bonna Vita Ventures
+                    </p>
+
+                    <ul>
+                        <li>
+                            Supported strategic planning and
+                            program operations.
+                        </li>
+                        <li>
+                            Managed program logistics
+                            and workflows.
+                        </li>
+                        <li>
+                            Analyzed applicant and program data.
+                        </li>
+                        <li>
+                            Supervised and trained interns
+                            supporting program delivery.
+                        </li>
+                    </ul>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Skills -->
+        <section class="resume-section">
+            <h2><span>03 /</span> Skills & Tools</h2>
+
+            <div class="resume-card">
+
+                <h3>Programming & Analytics</h3>
+                <div class="resume-skills">
+                    <span>Python</span>
+                    <span>R</span>
+                    <span>Excel</span>
+                    <span>Data Analysis</span>
+                    <span>Data Visualization</span>
+                </div>
+
+                <h3>Professional Skills</h3>
+                <div class="resume-skills">
+                    <span>Program Management</span>
+                    <span>Strategic Planning</span>
+                    <span>Operations</span>
+                    <span>Team Leadership</span>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="resume-footer">
+            <p>Built with HTML & CSS · Kristen Oleson</p>
+        </footer>
+
+    </main>
 
 </body>
-
 </html>
