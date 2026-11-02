@@ -454,3 +454,13 @@ body > nav {
         flex: 1 1 auto;
     }
 }
+
+/* LAB 5: PROJECT YEARS */
+
+.project-year {
+    font-family: Baskerville, serif;
+    font-variant-numeric: oldstyle-nums;
+    font-style: italic;
+    color: gray;
+    margin-top: 0.5em;
+}
