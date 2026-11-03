@@ -585,3 +585,62 @@ body > nav {
     outline: 2px solid oklch(65% 50% 270);
     outline-offset: 2px;
 }
+
+
+/* =====================================
+   LAB 5: INTERACTIVE PIE CHART
+   ===================================== */
+
+#projects-pie-plot path {
+    cursor: pointer;
+    transition: opacity 300ms, fill 300ms;
+}
+
+/* Fade slices that are not hovered */
+#projects-pie-plot:has(path:hover) path:not(:hover) {
+    opacity: 0.5;
+}
+
+/* Highlight selected slice */
+#projects-pie-plot path.selected {
+    fill: oklch(60% 45% 0);
+}
+
+/* Interactive legend */
+.legend-item {
+    cursor: pointer;
+    transition: background-color 300ms;
+}
+
+/* Highlight selected legend entry */
+.legend-item.selected {
+    --color: oklch(60% 45% 0) !important;
+    background-color: rgba(180, 80, 120, 0.15);
+    border-radius: 0.3em;
+}
+
+/* Keyboard accessibility */
+#projects-pie-plot path:focus-visible,
+.legend-item:focus-visible {
+    outline: 2px solid oklch(65% 50% 270);
+    outline-offset: 3px;
+}
+
+/* Full-width search bar */
+.searchBar {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8em 1em;
+    margin-block: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    font: inherit;
+    background: canvas;
+    color: canvastext;
+}
+
+.searchBar:focus {
+    outline: 2px solid oklch(65% 50% 270);
+    outline-offset: 2px;
+}
