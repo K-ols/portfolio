@@ -68,3 +68,23 @@ arcs.forEach((arc, idx) => {
         .attr('fill', colors(idx));
 
 });
+
+// =====================================
+// LAB 5: STEP 2.2 - PIE CHART LEGEND
+// =====================================
+
+// Select the legend container
+let legend = d3.select('.legend');
+
+// Create a legend item for each category
+data.forEach((d, idx) => {
+
+    legend.append('li')
+        .attr('class', 'legend-item')
+        .attr('style', `--color: ${colors(idx)}`)
+        .html(`
+            <span class="swatch"></span>
+            ${d.label} <em>(${d.value})</em>
+        `);
+
+});
