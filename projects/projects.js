@@ -25,7 +25,7 @@ if (projectsTitle && Array.isArray(projects)) {
 }
 
 // =====================================
-// LAB 5: STEP 1.4 - STATIC PIE CHART
+// LAB 5: STEP 1.4 - PIE CHART USING D3
 // =====================================
 
 // Sample data for our pie chart
@@ -36,28 +36,11 @@ let arcGenerator = d3.arc()
     .innerRadius(0)
     .outerRadius(50);
 
-// Calculate the total of our data
-let total = 0;
+// Create a pie slice generator
+let sliceGenerator = d3.pie();
 
-for (let d of data) {
-    total += d;
-}
-
-// Calculate the start and end angles for each slice
-let angle = 0;
-let arcData = [];
-
-for (let d of data) {
-
-    let endAngle = angle + (d / total) * 2 * Math.PI;
-
-    arcData.push({
-        startAngle: angle,
-        endAngle: endAngle
-    });
-
-    angle = endAngle;
-}
+// Automatically calculate the angles for each slice
+let arcData = sliceGenerator(data);
 
 // Generate SVG paths for each slice
 let arcs = arcData.map((d) => arcGenerator(d));
