@@ -29,7 +29,7 @@ if (projectsTitle && Array.isArray(projects)) {
 // =====================================
 
 // Sample data for our pie chart
-let data = [1, 2];
+let data = [1, 2, 3, 4, 5, 5];
 
 // Create an arc generator
 let arcGenerator = d3.arc()
@@ -47,10 +47,7 @@ let arcs = arcData.map((d) => arcGenerator(d));
 
 // Define colors for each slice
 // Using purple tones to match the portfolio
-let colors = [
-    'oklch(65% 50% 270)',
-    'oklch(80% 25% 300)'
-];
+let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Select the pie chart SVG
 let svg = d3.select('#projects-pie-plot');
@@ -60,6 +57,6 @@ arcs.forEach((arc, idx) => {
 
     svg.append('path')
         .attr('d', arc)
-        .attr('fill', colors[idx]);
+        .attr('fill', colors(idx));
 
 });
