@@ -7,122 +7,194 @@ import { fetchJSON, renderProjects } from '../global.js';
 // LAB 4: FETCH AND DISPLAY PROJECTS
 // =====================================
 
-// Fetch project data from JSON file
-const projects = await fetchJSON('../lib/projects.json');
+const projects = await fetchJSON('../lib/projects.json') || [];
 
-// Select the projects container
 const projectsContainer = document.querySelector('.projects');
-
-// Display all projects
-renderProjects(projects, projectsContainer, 'h2');
-
-// Select the projects title
 const projectsTitle = document.querySelector('.projects-title');
 
-// Update the title with the total number of projects
-if (projectsTitle && Array.isArray(projects)) {
-    projectsTitle.textContent = `${projects.length} Projects`;
-}
+const svg = d3.select('#projects-pie-plot');
+const legend = d3.select('.legend');
+const searchInput = document.querySelector('.searchBar');
 
 // =====================================
-// LAB 5: STEP 3 - ACTUAL PROJECT DATA
+// LAB 5: SEARCH AND SELECTION STATE
 // =====================================
 
-// Group projects by year and count them
-let rolledData = d3.rollups(
-    projects,
-    (v) => v.length,
-    (d) => d.year
-);
+let query = '';
+let selectedYear = null;
 
-// Convert grouped data into pie chart format
-let data = rolledData.map(([year, count]) => {
-    return {
-        value: count,
-        label: year
-    };
-});
+// Colors remain consistent for each year
+const years = [...new Set(projects.map(d => String(d.year)))].sort();
+
+const colors = d3.scaleOrdinal()
+    .domain(years)
+    .range(d3.schemeTableau10);
 
 // =====================================
-// LAB 5: STEP 1 - CREATE PIE CHART
+// LAB 5: PIE CHART GENERATORS
 // =====================================
 
-// Create an arc generator
-let arcGenerator = d3.arc()
+const arcGenerator = d3.arc()
     .innerRadius(0)
     .outerRadius(50);
 
-// Create a pie slice generator
-let sliceGenerator = d3.pie()
-    .value((d) => d.value);
-
-// Automatically calculate the angles
-let arcData = sliceGenerator(data);
-
-// Generate SVG paths for each slice
-let arcs = arcData.map((d) => arcGenerator(d));
-
-// Automatically assign colors using D3
-let colors = d3.scaleOrdinal(d3.schemeTableau10);
-
-// Select the pie chart SVG
-let svg = d3.select('#projects-pie-plot');
-
-// Draw each slice of the pie chart
-arcs.forEach((arc, idx) => {
-
-    svg.append('path')
-        .attr('d', arc)
-        .attr('fill', colors(idx));
-
-});
+const sliceGenerator = d3.pie()
+    .value(d => d.value)
+    .sort(null);
 
 // =====================================
-// LAB 5: STEP 2 - PIE CHART LEGEND
+// STEP 4.3: SEARCH PROJECT METADATA
 // =====================================
 
-// Select the legend container
-let legend = d3.select('.legend');
+function getSearchResults() {
+    return projects.filter(project => {
+        const values = Object.values(project)
+            .join('\n')
+            .toLowerCase();
 
-// Create a legend item for each year
-data.forEach((d, idx) => {
-
-    legend.append('li')
-        .attr('class', 'legend-item')
-        .attr('style', `--color: ${colors(idx)}`)
-        .html(`
-            <span class="swatch"></span>
-            ${d.label} <em>(${d.value})</em>
-        `);
-
-});
+        return values.includes(query.toLowerCase());
+    });
+}
 
 // =====================================
-// LAB 5: STEP 4.1 - SEARCH QUERY
+// STEP 4.4: RENDER REACTIVE PIE CHART
 // =====================================
 
-// Store the current search query
-let query = '';
+function renderPieChart(visibleProjects) {
 
-// Select the search input
-let searchInput = document.querySelector('.searchBar');
-
-// =====================================
-// LAB 5: STEP 4.2 - SEARCH FUNCTIONALITY
-// =====================================
-
-// Listen for changes in the search bar
-searchInput.addEventListener('input', (event) => {
-
-    // Get the user's search query
-    query = event.target.value;
-
-    // Filter projects based on their titles
-    let filteredProjects = projects.filter((project) =>
-        project.title.includes(query)
+    // Group projects by year
+    const rolledData = d3.rollups(
+        visibleProjects,
+        v => v.length,
+        d => String(d.year)
     );
 
-    // Display only matching projects
-    renderProjects(filteredProjects, projectsContainer, 'h2');
+    const data = rolledData.map(([year, count]) => ({
+        value: count,
+        label: year
+    })).sort((a, b) => a.label.localeCompare(b.label));
 
+    // Generate pie slices
+    const arcData = sliceGenerator(data);
+
+    // Clear previous chart and legend
+    svg.selectAll('*').remove();
+    legend.selectAll('*').remove();
+
+    // Create each pie slice
+    arcData.forEach(slice => {
+
+        const year = slice.data.label;
+
+        svg.append('path')
+            .attr('d', arcGenerator(slice))
+            .attr('fill', colors(year))
+            .attr('class', selectedYear === year ? 'selected' : '')
+            .attr('tabindex', 0)
+            .attr('role', 'button')
+            .attr('aria-label', `Filter projects from ${year}`)
+            .on('click', () => selectYear(year))
+            .on('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    selectYear(year);
+                }
+            });
+    });
+
+    // Create legend entries
+    data.forEach(d => {
+
+        const year = d.label;
+
+        legend.append('li')
+            .attr('class',
+                `legend-item ${selectedYear === year ? 'selected' : ''}`
+            )
+            .attr('style', `--color: ${colors(year)}`)
+            .attr('tabindex', 0)
+            .attr('role', 'button')
+            .attr('aria-label', `Filter projects from ${year}`)
+            .html(`
+                <span class="swatch"></span>
+                ${year} <em>(${d.value})</em>
+            `)
+            .on('click', () => selectYear(year))
+            .on('keydown', event => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    selectYear(year);
+                }
+            });
+    });
+}
+
+// =====================================
+// STEP 5: FILTER PROJECTS BY YEAR
+// =====================================
+
+function selectYear(year) {
+
+    // Clicking the same year deselects it
+    selectedYear = selectedYear === year ? null : year;
+
+    updateVisualization();
+}
+
+// =====================================
+// EXTRA CREDIT: COMBINE BOTH FILTERS
+// =====================================
+
+function updateVisualization() {
+
+    // First apply the search query
+    const searchResults = getSearchResults();
+
+    // Then apply the selected year
+    const visibleProjects = selectedYear === null
+        ? searchResults
+        : searchResults.filter(
+            project => String(project.year) === selectedYear
+        );
+
+    // Update project cards
+    renderProjects(visibleProjects, projectsContainer, 'h2');
+
+    // Update chart using SEARCH results
+    // This preserves the full set of years while selecting a slice
+    renderPieChart(searchResults);
+
+    // Update heading
+    if (projectsTitle) {
+        projectsTitle.textContent = `${visibleProjects.length} Projects`;
+    }
+}
+
+// =====================================
+// STEP 4: SEARCH EVENT LISTENER
+// =====================================
+
+searchInput.addEventListener('input', event => {
+
+    query = event.target.value;
+
+    // Reset selection if the selected year
+    // no longer appears in search results
+    const results = getSearchResults();
+
+    if (
+        selectedYear !== null &&
+        !results.some(d => String(d.year) === selectedYear)
+    ) {
+        selectedYear = null;
+    }
+
+    updateVisualization();
 });
+
+// =====================================
+// INITIAL PAGE LOAD
+// =====================================
+
+// Display all projects and draw chart
+updateVisualization();
