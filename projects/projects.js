@@ -16,6 +16,12 @@ const projectsContainer = document.querySelector('.projects');
 // Display the projects
 renderProjects(projects, projectsContainer, 'h2');
 
+// Store the current search query
+let query = '';
+
+// Select the search input
+let searchInput = document.querySelector('.searchBar');
+
 // Select the projects title
 const projectsTitle = document.querySelector('.projects-title');
 
