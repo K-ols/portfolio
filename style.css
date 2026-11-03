@@ -503,3 +503,43 @@ body > nav {
     border-radius: 0.25em;
     flex-shrink: 0;
 }
+
+/* =====================================
+   LAB 5: PIE CHART AND LEGEND LAYOUT
+   ===================================== */
+
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    margin-block: 2em;
+}
+
+.container #projects-pie-plot {
+    flex: 0 0 auto;
+    width: 100%;
+    max-width: 20em;
+    margin-block: 0;
+}
+
+.container .legend {
+    flex: 1;
+    margin: 0;
+}
+
+/* Adjust layout for smaller screens */
+@media (max-width: 650px) {
+    .container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .container #projects-pie-plot {
+        align-self: center;
+    }
+
+    .container .legend {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
