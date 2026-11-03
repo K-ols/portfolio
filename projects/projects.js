@@ -22,6 +22,26 @@ let query = '';
 // Select the search input
 let searchInput = document.querySelector('.searchBar');
 
+// =====================================
+// LAB 5: STEP 4.2 - SEARCH FUNCTIONALITY
+// =====================================
+
+// Listen for changes in the search bar
+searchInput.addEventListener('input', (event) => {
+
+    // Get the user's search query
+    query = event.target.value;
+
+    // Filter projects based on their titles
+    let filteredProjects = projects.filter((project) =>
+        project.title.includes(query)
+    );
+
+    // Display only matching projects
+    renderProjects(filteredProjects, projectsContainer, 'h2');
+
+});
+
 // Select the projects title
 const projectsTitle = document.querySelector('.projects-title');
 
