@@ -28,8 +28,15 @@ if (projectsTitle && Array.isArray(projects)) {
 // LAB 5: STEP 1.4 - PIE CHART USING D3
 // =====================================
 
-// Sample data for our pie chart
-let data = [1, 2, 3, 4, 5, 5];
+// Sample data with labels
+let data = [
+    { value: 1, label: 'Apples' },
+    { value: 2, label: 'Oranges' },
+    { value: 3, label: 'Mangos' },
+    { value: 4, label: 'Pears' },
+    { value: 5, label: 'Limes' },
+    { value: 5, label: 'Cherries' }
+];
 
 // Create an arc generator
 let arcGenerator = d3.arc()
