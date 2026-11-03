@@ -19,3 +19,20 @@ const projectsTitle = document.querySelector('.projects-title');
 if (projectsTitle && Array.isArray(projects)) {
     projectsTitle.textContent = `${projects.length} Projects`;
 }
+
+// Create an arc generator
+let arcGenerator = d3.arc()
+    .innerRadius(0)
+    .outerRadius(50);
+
+// Generate a full circle (2π radians)
+let arc = arcGenerator({
+    startAngle: 0,
+    endAngle: 2 * Math.PI
+});
+
+// Draw the circle inside our SVG
+d3.select('#projects-pie-plot')
+    .append('path')
+    .attr('d', arc)
+    .attr('fill', 'oklch(65% 50% 270)');
