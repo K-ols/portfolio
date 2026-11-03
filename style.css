@@ -565,3 +565,23 @@ body > nav {
     outline: 2px solid oklch(65% 50% 270);
     outline-offset: 2px;
 }
+
+/* LAB 5: SEARCH BAR WIDTH */
+
+.searchBar {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.8em 1em;
+    margin: 1.5em 0;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    font: inherit;
+    background: canvas;
+    color: canvastext;
+}
+
+.searchBar:focus {
+    outline: 2px solid oklch(65% 50% 270);
+    outline-offset: 2px;
+}
