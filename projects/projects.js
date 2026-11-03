@@ -25,18 +25,23 @@ if (projectsTitle && Array.isArray(projects)) {
 }
 
 // =====================================
-// LAB 5: STEP 1.4 - PIE CHART USING D3
+// LAB 5: STEP 3 - ACTUAL PROJECT DATA
 // =====================================
 
-// Sample data with labels
-let data = [
-    { value: 1, label: 'Apples' },
-    { value: 2, label: 'Oranges' },
-    { value: 3, label: 'Mangos' },
-    { value: 4, label: 'Pears' },
-    { value: 5, label: 'Limes' },
-    { value: 5, label: 'Cherries' }
-];
+// Group projects by year and count them
+let rolledData = d3.rollups(
+    projects,
+    (v) => v.length,
+    (d) => d.year
+);
+
+// Convert grouped data into pie chart format
+let data = rolledData.map(([year, count]) => {
+    return {
+        value: count,
+        label: year
+    };
+});
 
 // Create an arc generator
 let arcGenerator = d3.arc()
