@@ -44,7 +44,8 @@ let arcGenerator = d3.arc()
     .outerRadius(50);
 
 // Create a pie slice generator
-let sliceGenerator = d3.pie();
+let sliceGenerator = d3.pie()
+    .value((d) => d.value);
 
 // Automatically calculate the angles for each slice
 let arcData = sliceGenerator(data);
