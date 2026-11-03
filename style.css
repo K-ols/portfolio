@@ -464,3 +464,11 @@ body > nav {
     color: gray;
     margin-top: 0.5em;
 }
+
+/* LAB 5: PIE CHART */
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
