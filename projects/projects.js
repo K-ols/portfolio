@@ -13,34 +13,8 @@ const projects = await fetchJSON('../lib/projects.json');
 // Select the projects container
 const projectsContainer = document.querySelector('.projects');
 
-// Display the projects
+// Display all projects
 renderProjects(projects, projectsContainer, 'h2');
-
-// Store the current search query
-let query = '';
-
-// Select the search input
-let searchInput = document.querySelector('.searchBar');
-
-// =====================================
-// LAB 5: STEP 4.2 - SEARCH FUNCTIONALITY
-// =====================================
-
-// Listen for changes in the search bar
-searchInput.addEventListener('input', (event) => {
-
-    // Get the user's search query
-    query = event.target.value;
-
-    // Filter projects based on their titles
-    let filteredProjects = projects.filter((project) =>
-        project.title.includes(query)
-    );
-
-    // Display only matching projects
-    renderProjects(filteredProjects, projectsContainer, 'h2');
-
-});
 
 // Select the projects title
 const projectsTitle = document.querySelector('.projects-title');
@@ -69,6 +43,10 @@ let data = rolledData.map(([year, count]) => {
     };
 });
 
+// =====================================
+// LAB 5: STEP 1 - CREATE PIE CHART
+// =====================================
+
 // Create an arc generator
 let arcGenerator = d3.arc()
     .innerRadius(0)
@@ -78,14 +56,13 @@ let arcGenerator = d3.arc()
 let sliceGenerator = d3.pie()
     .value((d) => d.value);
 
-// Automatically calculate the angles for each slice
+// Automatically calculate the angles
 let arcData = sliceGenerator(data);
 
 // Generate SVG paths for each slice
 let arcs = arcData.map((d) => arcGenerator(d));
 
-// Define colors for each slice
-// Using purple tones to match the portfolio
+// Automatically assign colors using D3
 let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 // Select the pie chart SVG
@@ -101,13 +78,13 @@ arcs.forEach((arc, idx) => {
 });
 
 // =====================================
-// LAB 5: STEP 2.2 - PIE CHART LEGEND
+// LAB 5: STEP 2 - PIE CHART LEGEND
 // =====================================
 
 // Select the legend container
 let legend = d3.select('.legend');
 
-// Create a legend item for each category
+// Create a legend item for each year
 data.forEach((d, idx) => {
 
     legend.append('li')
@@ -117,5 +94,35 @@ data.forEach((d, idx) => {
             <span class="swatch"></span>
             ${d.label} <em>(${d.value})</em>
         `);
+
+});
+
+// =====================================
+// LAB 5: STEP 4.1 - SEARCH QUERY
+// =====================================
+
+// Store the current search query
+let query = '';
+
+// Select the search input
+let searchInput = document.querySelector('.searchBar');
+
+// =====================================
+// LAB 5: STEP 4.2 - SEARCH FUNCTIONALITY
+// =====================================
+
+// Listen for changes in the search bar
+searchInput.addEventListener('input', (event) => {
+
+    // Get the user's search query
+    query = event.target.value;
+
+    // Filter projects based on their titles
+    let filteredProjects = projects.filter((project) =>
+        project.title.includes(query)
+    );
+
+    // Display only matching projects
+    renderProjects(filteredProjects, projectsContainer, 'h2');
 
 });
