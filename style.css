@@ -543,3 +543,25 @@ body > nav {
         box-sizing: border-box;
     }
 }
+
+/* =====================================
+   LAB 5: PROJECT SEARCH BAR
+   ===================================== */
+
+.searchBar {
+    display: block;
+    width: 100%;
+    padding: 0.8em 1em;
+    margin-block: 1.5em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    font: inherit;
+    background: canvas;
+    color: canvastext;
+    box-sizing: border-box;
+}
+
+.searchBar:focus {
+    outline: 2px solid oklch(65% 50% 270);
+    outline-offset: 2px;
+}
