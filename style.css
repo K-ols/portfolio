@@ -646,40 +646,109 @@ body > nav {
 }
 
 
-name: Generate Code Analysis CSV
+/* LAB 6: CODE ANALYSIS */
 
-on:
-  workflow_dispatch:
+/* Summary statistics */
+dl.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 0.5rem 1rem;
+  margin: 1.5rem 0;
+}
 
-permissions:
-  contents: write
+dl.stats dt {
+  color: #777;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
 
-jobs:
-  generate:
-    runs-on: ubuntu-latest
+dl.stats dd {
+  margin: 0 0 1rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+/* Scatterplot */
+#chart {
+  width: 100%;
+  margin: 2rem 0;
+}
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22'
+#chart svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
 
-      - name: Generate loc.csv
-        run: |
-          npm install --no-save elocuent
-          npx elocuent -d . -o meta/loc.csv --spaces 2
+.gridlines line {
+  stroke: #aaa;
+  stroke-opacity: 0.2;
+}
 
-      - name: Commit generated CSV
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add meta/loc.csv
-          if ! git diff --cached --quiet; then
-            git commit -m "Generate code analysis CSV"
-            git push
-          fi
+.gridlines path {
+  display: none;
+}
+
+/* Interactive dots */
+.dots circle {
+  cursor: pointer;
+  transition: fill-opacity 200ms, fill 200ms;
+}
+
+.dots circle:hover {
+  stroke: black;
+  stroke-width: 2;
+}
+
+.dots circle.selected {
+  fill: #ff6b6b;
+  fill-opacity: 1 !important;
+}
+
+/* Commit tooltip */
+dl.info {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 1rem;
+}
+
+dl.info dt {
+  color: #777;
+}
+
+dl.info dd {
+  margin: 0;
+}
+
+.tooltip {
+  position: fixed;
+  z-index: 1000;
+  background: white;
+  color: #222;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  max-width: 240px;
+}
+
+.tooltip[hidden] {
+  display: none;
+}
+
+/* Brush selection */
+.brush .selection {
+  fill: steelblue;
+  fill-opacity: 0.15;
+  stroke: steelblue;
+  stroke-dasharray: 5 3;
+}
+
+/* Selected commit information */
+#selection-count {
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+#language-breakdown {
+  margin-bottom: 3rem;
+}
