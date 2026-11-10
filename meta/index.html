@@ -1,1 +1,55 @@
-ok
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Code Analysis - Kristen Oleson</title>
+  <link rel="stylesheet" href="../style.css">
+  <script type="module" src="../global.js"></script>
+  <script type="module" src="main.js"></script>
+</head>
+
+<body>
+  <main>
+    <h1>Code Analysis</h1>
+    <p>
+      An interactive look at the development of my portfolio,
+      including code statistics, commit history, and programming languages.
+    </p>
+
+    <h2>Code Statistics</h2>
+    <div id="stats"></div>
+
+    <h2>Commits by Time of Day</h2>
+    <p>
+      Hover over a dot to view commit details.
+      Drag across empty chart space to select multiple commits.
+    </p>
+    <div id="chart"></div>
+
+    <p id="selection-count">No commits selected</p>
+
+    <h2>Selected Language Breakdown</h2>
+    <dl id="language-breakdown" class="stats"></dl>
+  </main>
+
+  <dl id="commit-tooltip" class="info tooltip" hidden>
+    <dt>Commit</dt>
+    <dd><a href="" id="commit-link" target="_blank"></a></dd>
+
+    <dt>Date</dt>
+    <dd id="commit-date"></dd>
+
+    <dt>Time</dt>
+    <dd id="commit-time"></dd>
+
+    <dt>Author</dt>
+    <dd id="commit-author"></dd>
+
+    <dt>Lines Edited</dt>
+    <dd id="commit-lines"></dd>
+  </dl>
+</body>
+</html>
+
