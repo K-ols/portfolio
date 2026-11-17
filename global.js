@@ -23,6 +23,10 @@ let pages = [
     { url: "resume/", title: "Resume" }
 ];
 
+// =====================================
+// NAVIGATION MENU
+// =====================================
+
 // Create navigation menu
 let nav = document.createElement("nav");
 document.body.prepend(nav);
@@ -120,7 +124,9 @@ export async function fetchJSON(url) {
 
         // Check if the request was successful
         if (!response.ok) {
-            throw new Error(`Failed to fetch data: ${response.statusText}`);
+            throw new Error(
+                `Failed to fetch data: ${response.statusText}`
+            );
         }
 
         // Convert the response into JSON
@@ -129,16 +135,25 @@ export async function fetchJSON(url) {
         return data;
 
     } catch (error) {
-        console.error('Error fetching or parsing JSON data:', error);
+        console.error(
+            'Error fetching or parsing JSON data:',
+            error
+        );
+
         return null;
     }
 }
 
 // =====================================
 // LAB 4: RENDER PROJECTS
+// UPDATED: CLICKABLE PROJECT LINKS
 // =====================================
 
-export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+export function renderProjects(
+    projects,
+    containerElement,
+    headingLevel = 'h2'
+) {
 
     // Check that the container exists
     if (!containerElement) {
@@ -161,15 +176,66 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
         // Create an article element
         const article = document.createElement('article');
 
-       // Add project details
-article.innerHTML = `
-    <${headingLevel}>${project.title}</${headingLevel}>
-    <img src="${project.image}" alt="${project.title}">
-    <div>
-        <p>${project.description}</p>
-        <p class="project-year">${project.year}</p>
-    </div>
-`;
+        // =====================================
+        // PROJECT TITLE
+        // =====================================
+
+        // If the project has a URL, make title clickable
+        const title = project.url
+            ? `
+                <a
+                    href="${project.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ${project.title}
+                </a>
+              `
+            : project.title;
+
+        // =====================================
+        // PROJECT IMAGE
+        // =====================================
+
+        // If the project has a URL, make image clickable
+        const image = project.url
+            ? `
+                <a
+                    href="${project.url}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <img
+                        src="${project.image}"
+                        alt="${project.title}"
+                    >
+                </a>
+              `
+            : `
+                <img
+                    src="${project.image}"
+                    alt="${project.title}"
+                >
+              `;
+
+        // =====================================
+        // PROJECT CARD CONTENT
+        // =====================================
+
+        article.innerHTML = `
+            <${headingLevel}>
+                ${title}
+            </${headingLevel}>
+
+            ${image}
+
+            <div>
+                <p>${project.description}</p>
+                <p class="project-year">
+                    ${project.year}
+                </p>
+            </div>
+        `;
 
         // Add the article to the container
         containerElement.appendChild(article);
@@ -183,6 +249,8 @@ article.innerHTML = `
 export async function fetchGitHubData(username) {
 
     // Fetch public GitHub profile data
-    return fetchJSON(`https://api.github.com/users/${username}`);
-
+    return fetchJSON(
+        `https://api.github.com/users/${username}`
+    );
 }
+
