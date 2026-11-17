@@ -68,9 +68,9 @@
   },
 {
   "title": "Bikewatching: Boston Bike Traffic",
-  "year": 2026,
-  "description": "An interactive geospatial visualization of over 260,000 Bluebikes rides across Boston and Cambridge. Built with Mapbox GL JS and D3.js, featuring bike lanes, station traffic volumes, arrival and departure patterns, interactive tooltips, and time-of-day filtering.",
+  "year": "2026",
   "image": "images/bikewatching.png",
+  "description": "DSC 209R Lab 7: Built an interactive geospatial visualization of 261,687 Bluebikes rides across Boston and Cambridge using Mapbox GL JS and D3.js. Features bike lanes, station traffic volumes, arrival and departure patterns, tooltips, and time-of-day filtering.",
   "url": "https://k-ols.github.io/bikewatching/"
 },
   {
