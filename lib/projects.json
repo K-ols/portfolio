@@ -66,6 +66,13 @@
     "image": "https://vis-society.github.io/labs/2/images/empty.svg",
     "description": "Explored San Diego Airbnb listing data using Python and exploratory data analysis techniques."
   },
+{
+  "title": "Bikewatching: Boston Bike Traffic",
+  "year": 2026,
+  "description": "An interactive geospatial visualization of over 260,000 Bluebikes rides across Boston and Cambridge. Built with Mapbox GL JS and D3.js, featuring bike lanes, station traffic volumes, arrival and departure patterns, interactive tooltips, and time-of-day filtering.",
+  "image": "images/bikewatching.png",
+  "url": "https://k-ols.github.io/bikewatching/"
+},
   {
     "title": "Personal Portfolio Website",
     "year": "2026",
