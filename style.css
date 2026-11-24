@@ -876,3 +876,11 @@ dl.info dd {
     z-index: 100;
     pointer-events: none;
 }
+
+#scatter-plot {
+    align-self: flex-start;
+}
+
+#files .loc {
+    flex-shrink: 0;
+}
