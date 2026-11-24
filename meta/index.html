@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Meta - Portfolio</title>
+
     <link rel="stylesheet" href="../style.css">
+
     <script type="module" src="../global.js"></script>
-    <script type="module" src="meta.js"></script>
+    <script type="module" src="main.js"></script>
 </head>
 
 <body>
@@ -25,6 +28,7 @@
     </div>
 
     <h2>Summary</h2>
+
     <div id="stats"></div>
 
     <h2>Commits Over Time</h2>
@@ -42,8 +46,11 @@
     </div>
 
     <dl id="commit-tooltip" class="info tooltip" hidden>
+
         <dt>Commit</dt>
-        <dd><a href="" id="commit-link" target="_blank"></a></dd>
+        <dd>
+            <a href="" id="commit-link" target="_blank" rel="noopener"></a>
+        </dd>
 
         <dt>Date</dt>
         <dd id="commit-date"></dd>
@@ -51,13 +58,20 @@
         <dt>Time</dt>
         <dd id="commit-time-tooltip"></dd>
 
+        <dt>Author</dt>
+        <dd id="commit-author"></dd>
+
         <dt>Lines edited</dt>
         <dd id="commit-lines"></dd>
+
     </dl>
 
     <h2>File Sizes</h2>
 
-    <p>Each dot represents one line of code. Colors represent different programming languages.</p>
+    <p>
+        Each dot represents one line of code.
+        Colors represent different programming languages.
+    </p>
 
     <dl id="files"></dl>
 
