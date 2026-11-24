@@ -2,54 +2,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Code Analysis - Kristen Oleson</title>
-  <link rel="stylesheet" href="../style.css">
-  <script type="module" src="../global.js"></script>
-  <script type="module" src="main.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meta - Portfolio</title>
+    <link rel="stylesheet" href="../style.css">
+    <script type="module" src="../global.js"></script>
+    <script type="module" src="meta.js"></script>
 </head>
 
 <body>
-  <main>
-    <h1>Code Analysis</h1>
-    <p>
-      An interactive look at the development of my portfolio,
-      including code statistics, commit history, and programming languages.
-    </p>
+    <h1>Meta</h1>
 
-    <h2>Code Statistics</h2>
+    <p>Explore how my portfolio codebase has evolved over time.</p>
+
+    <div id="commit-filter">
+        <label>
+            Show commits until:
+            <input type="range" id="commit-progress"
+                   min="0" max="100" value="100">
+            <time id="commit-time"></time>
+        </label>
+    </div>
+
+    <h2>Summary</h2>
     <div id="stats"></div>
 
-    <h2>Commits by Time of Day</h2>
-    <p>
-      Hover over a dot to view commit details.
-      Drag across empty chart space to select multiple commits.
-    </p>
-    <div id="chart"></div>
+    <h2>Commits Over Time</h2>
 
-    <p id="selection-count">No commits selected</p>
+    <p>Scroll down to explore the development of my portfolio.</p>
 
-    <h2>Selected Language Breakdown</h2>
-    <dl id="language-breakdown" class="stats"></dl>
-  </main>
+    <div id="scrolly-1">
+        <div id="scatter-story"></div>
 
-  <dl id="commit-tooltip" class="info tooltip" hidden>
-    <dt>Commit</dt>
-    <dd><a href="" id="commit-link" target="_blank"></a></dd>
+        <div id="scatter-plot">
+            <div id="chart"></div>
+            <p id="selection-count"></p>
+            <dl id="language-breakdown"></dl>
+        </div>
+    </div>
 
-    <dt>Date</dt>
-    <dd id="commit-date"></dd>
+    <dl id="commit-tooltip" class="info tooltip" hidden>
+        <dt>Commit</dt>
+        <dd><a href="" id="commit-link" target="_blank"></a></dd>
 
-    <dt>Time</dt>
-    <dd id="commit-time"></dd>
+        <dt>Date</dt>
+        <dd id="commit-date"></dd>
 
-    <dt>Author</dt>
-    <dd id="commit-author"></dd>
+        <dt>Time</dt>
+        <dd id="commit-time-tooltip"></dd>
 
-    <dt>Lines Edited</dt>
-    <dd id="commit-lines"></dd>
-  </dl>
+        <dt>Lines edited</dt>
+        <dd id="commit-lines"></dd>
+    </dl>
+
+    <h2>File Sizes</h2>
+
+    <p>Each dot represents one line of code. Colors represent different programming languages.</p>
+
+    <dl id="files"></dl>
+
 </body>
 </html>
-
